@@ -1,4 +1,5 @@
-import { useRef, useEffect } from "react";
+"use client";
+import { useRef, useEffect, useState } from "react";
 import {
   Renderer,
   Camera,
@@ -34,7 +35,7 @@ function createTextTexture(
   gl,
   text,
   font = "bold 30px monospace",
-  color = "black",
+  color = "black"
 ) {
   const canvas = document.createElement("canvas");
   const context = canvas.getContext("2d");
@@ -78,7 +79,7 @@ class Title {
       this.gl,
       this.text,
       this.font,
-      this.textColor,
+      this.textColor
     );
     const geometry = new Plane(this.gl);
     const program = new Program(this.gl, {
@@ -152,6 +153,8 @@ class Media {
     this.createMesh();
     this.createTitle();
     this.onResize();
+    this.startTime = 0;
+    this.animationId = null;
   }
   createShader() {
     const texture = new Texture(this.gl, { generateMipmaps: false });
@@ -213,7 +216,7 @@ class Media {
         uPlaneSizes: { value: [0, 0] },
         uImageSizes: { value: [0, 0] },
         uSpeed: { value: 0 },
-        uTime: { value: 100 * Math.random() },
+        uTime: { value: 0 },
         uBorderRadius: { value: this.borderRadius },
       },
       transparent: true,
@@ -312,6 +315,25 @@ class Media {
     this.widthTotal = this.width * this.length;
     this.x = this.width * this.index;
   }
+  componentDidMount() {
+    this.startTime = performance.now();
+    this.animate();
+  }
+
+  animate() {
+    if (!this.program) return; 
+
+    const time = performance.now() - this.startTime;
+    this.program.uniforms.uTime.value = time * 0.001; 
+
+    this.animationId = requestAnimationFrame(this.animate.bind(this));
+  }
+
+  componentWillUnmount() {
+    if (this.animationId) {
+      cancelAnimationFrame(this.animationId);
+    }
+  }
 }
 
 class App {
@@ -323,7 +345,7 @@ class App {
       textColor = "#ffffff",
       borderRadius = 0,
       font = "bold 30px DM Sans",
-    } = {},
+    } = {}
   ) {
     document.documentElement.classList.remove("no-js");
     this.container = container;
@@ -388,7 +410,6 @@ class App {
         image: `https://cdn.prod.website-files.com/654366841809b5be271c8358/659ef0c7d3c9d7fa04e59774_why_is_node_js_becoming_the_top_programming_language_in_erp_.webp`,
         text: "Node.js",
       },
-      
     ];
     const galleryItems = items && items.length ? items : defaultItems;
     this.mediasImages = galleryItems.concat(galleryItems);
@@ -442,7 +463,7 @@ class App {
       width: this.container.clientWidth,
       height: 500,
     };
-    
+
     this.renderer.setSize(this.screen.width, this.screen.height);
     this.camera.perspective({
       aspect: this.screen.width / this.screen.height,
@@ -453,7 +474,7 @@ class App {
     this.viewport = { width, height };
     if (this.medias) {
       this.medias.forEach((media) =>
-        media.onResize({ screen: this.screen, viewport: this.viewport }),
+        media.onResize({ screen: this.screen, viewport: this.viewport })
       );
     }
   }
@@ -461,7 +482,7 @@ class App {
     this.scroll.current = lerp(
       this.scroll.current,
       this.scroll.target,
-      this.scroll.ease,
+      this.scroll.ease
     );
     const direction = this.scroll.current > this.scroll.last ? "right" : "left";
     if (this.medias) {
@@ -516,7 +537,10 @@ export default function CircularGallery({
   font = "bold 30px DM Sans",
 }) {
   const containerRef = useRef(null);
+  const [hasMounted, setHasMounted] = useState(false);
   useEffect(() => {
+    setHasMounted(true);
+    if (!hasMounted || !containerRef.current) return;
     const app = new App(containerRef.current, {
       items,
       bend,
@@ -527,7 +551,7 @@ export default function CircularGallery({
     return () => {
       app.destroy();
     };
-  }, [items, bend, textColor, borderRadius, font]);
+  }, [items, bend, textColor, borderRadius, font, hasMounted]);
   return (
     <div
       className="w-full h-full overflow-display cursor-grab active:cursor-grabbing mt-[-100px]"

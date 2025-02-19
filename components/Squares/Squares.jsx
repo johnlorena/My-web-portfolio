@@ -1,5 +1,5 @@
 "use client";
-import { useRef, useEffect } from "react";
+import { useRef, useEffect, useState } from "react";
 
 const Squares = ({
   direction = "right",
@@ -14,10 +14,12 @@ const Squares = ({
   const numSquaresY = useRef(0);
   const gridOffset = useRef({ x: 0, y: 0 });
   const hoveredSquareRef = useRef(null);
+  const [hasMounted, setHasMounted] = useState(false); 
 
   useEffect(() => {
+    setHasMounted(true);
     const canvas = canvasRef.current;
-    if (!canvas) return;
+    if (!canvas || !hasMounted) return;
     const ctx = canvas.getContext("2d");
 
     const resizeCanvas = () => {
@@ -26,9 +28,8 @@ const Squares = ({
       numSquaresX.current = Math.ceil(canvas.width / squareSize) + 1;
       numSquaresY.current = Math.ceil(canvas.height / squareSize) + 1;
     };
-
-    window.addEventListener("resize", resizeCanvas);
     resizeCanvas();
+    window.addEventListener("resize", resizeCanvas);
 
     const drawGrid = () => {
       if (!ctx) return;
@@ -144,7 +145,7 @@ const Squares = ({
       canvas.removeEventListener("mousemove", handleMouseMove);
       canvas.removeEventListener("mouseleave", handleMouseLeave);
     };
-  }, [direction, speed, borderColor, hoverFillColor, squareSize]);
+  }, [direction, speed, borderColor, hoverFillColor, squareSize, hasMounted]);
 
   return (
     <canvas

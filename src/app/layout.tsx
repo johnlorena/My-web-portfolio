@@ -1,6 +1,8 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
+import { Analytics } from "@vercel/analytics/react";
+import { SpeedInsights } from "@vercel/speed-insights/next";
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -14,7 +16,8 @@ const geistMono = Geist_Mono({
 
 export const metadata: Metadata = {
   title: "JohnLorena Software Engineer",
-  description: "This is my personal web portfolio showcasing my skills, projects, and experience as a Software Engineer.",
+  description:
+    "This is my personal web portfolio showcasing my skills, projects, and experience as a Software Engineer.",
 };
 
 export default function RootLayout({
@@ -27,6 +30,9 @@ export default function RootLayout({
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
       >
+        {" "}
+        <Analytics />
+        <SpeedInsights />
         {children}
       </body>
     </html>

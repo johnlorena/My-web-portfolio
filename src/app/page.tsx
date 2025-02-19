@@ -2,22 +2,10 @@
 import CircularGallery from "../../components/CircularGallery/CircularGallery";
 import "./style.css";
 import Image from "next/image";
-import Squares from "../../components/Squares/Squares"; // Import Squares from the appropriate library
 
 export default function Home() {
   return (
     <div className="relative min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-hidden">
-      {/* Background Animation */}
-      <div className="absolute inset-0 -z-10">
-        <Squares
-          speed={0.1}
-          squareSize={40}
-          direction="up"
-          borderColor="#181818"
-          hoverFillColor="#222"
-        />
-      </div>
-
       {/* Content */}
       <header className="w-full flex justify-between items-center">
         <div className="text-2xl font-bold">

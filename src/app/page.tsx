@@ -1,14 +1,13 @@
 "use client";
 import CircularGallery from "../../components/CircularGallery/CircularGallery";
 import "./style.css";
-import Image from "next/image";
 import Squares from "../../components/Squares/Squares";
 import { motion } from "framer-motion";
 import {
   Presentation,
   FileBadge,
   Contact,
-  Briefcase,
+
   Star,
 } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/Card";

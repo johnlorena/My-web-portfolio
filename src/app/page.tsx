@@ -2,9 +2,15 @@
 import CircularGallery from "../../components/CircularGallery/CircularGallery";
 import "./style.css";
 import Image from "next/image";
-import Squares from "../../components/Squares/Squares"; 
+import Squares from "../../components/Squares/Squares";
 import { motion } from "framer-motion";
-import { Presentation, FileBadge, Contact } from "lucide-react";
+import {
+  Presentation,
+  FileBadge,
+  Contact,
+  Briefcase,
+  Star,
+} from "lucide-react";
 import { Card, CardContent } from "../../components/ui/Card";
 
 const sections = [
@@ -68,9 +74,19 @@ const sections = [
   },
 ];
 
+const experiences = [
+  {
+    role: "Software Engineer",
+    company: "You_Source",
+    duration: "Feb 2024 — Feb 2025",
+    image:
+      "https://media.licdn.com/dms/image/v2/D4D0BAQH4u65euJwTaQ/company-logo_200_200/company-logo_200_200/0/1737083145519/yousourceinc_logo?e=1748476800&v=beta&t=diXCdD8uN7orDPZVXiPUynFOCfOS9zCZL0ZVh1uAodA",
+  },
+];
+
 export default function Home() {
   return (
-    <div className="relative min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-hidden">
+    <div className="relative min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-display">
       {/* Background Animation */}
       <div className="absolute inset-0 -z-10">
         <Squares
@@ -82,7 +98,6 @@ export default function Home() {
         />
       </div>
       {/* Content */}
-      
 
       <motion.div
         initial={{ opacity: 0, y: 20 }}
@@ -90,31 +105,21 @@ export default function Home() {
         transition={{ duration: 0.5 }}
       >
         <header className="w-full flex justify-between items-center">
-        <div className="text-2xl font-bold">
-          <span>John Lorena</span>
-        </div>
-        <nav className="space-x-8">
-          <a href="#about" className="hover:text-gray-500">
-            About
-          </a>
-          <a href="#projects" className="hover:text-gray-500">
-            Projects
-          </a>
-          <a href="#contact" className="hover:text-gray-500">
-            Contact
-          </a>
-        </nav>
-      </header>
-      
-        <div className="flex justify-center items-center">
-          <Image
-            src="https://media1.giphy.com/media/v1.Y2lkPTc5MGI3NjExdHgzMGd6Z3ZkOWQ5ZW5janlxbm9lZWdnanFsaHduMnZybW43bDM0YyZlcD12MV9pbnRlcm5naWZfYnlfaWQmY3Q9cw/H2Px8gYWL0yZ3eDd0g/giphy.gif"
-            alt="Work in Progress"
-            width={500}
-            height={500}
-            className="max-w-full h-auto"
-          />
-        </div>
+          <div className="text-2xl font-bold">
+            <span>John Lorena</span>
+          </div>
+          <nav className="space-x-8">
+            <a href="#about" className="hover:text-gray-500">
+              About
+            </a>
+            <a href="#projects" className="hover:text-gray-500">
+              Projects
+            </a>
+            <a href="#contact" className="hover:text-gray-500">
+              Contact
+            </a>
+          </nav>
+        </header>
         <div className="w-full flex justify-center mb-[-80px]">
           <h2 className="text-4xl font-bold mb-8">TECH STACK:</h2>
         </div>
@@ -134,9 +139,56 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <h2 className="text-4xl font-bold mb-8">
-              CERTIFICATES / PARTICIPATION
-            </h2>
+            <div className="">
+              <div className="flex items-center gap-2 text-green-400 uppercase text-sm font-semibold">
+                <Star size={16} /> WORK HISTORY
+              </div>
+              <h2 className="text-4xl font-bold mb-8">EXPERIENCE</h2>
+              {/* <p className="text-gray-400 mt-4 max-w-lg">
+              I have worked with some of the most innovative industry leaders to
+              help build their top-notch products.
+            </p> */}
+
+              <div className="mt-8 space-y-4">
+                {experiences.map((exp, index) => (
+                  <div
+                    key={index}
+                    className="flex items-center justify-between"
+                  >
+                    {/*  border-b border-gray-800 pb-4 */}
+                    <div className="flex items-center gap-4">
+                      <img
+                        src={exp.image}
+                        alt={exp.company}
+                        className="w-10 h-10 rounded-full"
+                      />
+                      <div>
+                        <h3 className="text-lg font-semibold">{exp.role}</h3>
+                        <p className="text-gray-500">@{exp.company}</p>
+                      </div>
+                    </div>
+                    <span className="text-gray-500 text-sm">
+                      {exp.duration}
+                    </span>
+                  </div>
+                ))}
+              </div>
+              {/* <button className="mt-6 text-gray-400 hover:text-white transition">
+              Show More
+            </button> */}
+            </div>
+          </motion.div>
+        </section>
+        <section className="py-12 px-6 text-white">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.5 }}
+          >
+            <div className="flex items-center gap-2 text-green-400 uppercase text-sm font-semibold">
+              <Star size={16} /> Participations
+            </div>
+            <h2 className="text-4xl font-bold mb-8">CERTIFICATES</h2>
           </motion.div>
 
           <div className="space-y-4">

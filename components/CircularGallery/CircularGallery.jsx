@@ -377,7 +377,7 @@ class App {
         text: "PHP",
       },
       {
-        image: `https://www.amigoscode.com/assets/thumbnails/courses/python.webp`,
+        image: `https://miro.medium.com/1*3IcLSFuT8PQg4cUBaRXH1A.png`,
         text: "Python",
       },
       {

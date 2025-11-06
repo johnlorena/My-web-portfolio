@@ -79,7 +79,7 @@ const experiences = [
     company: "You_Source",
     duration: "Feb 2024 — Feb 2025",
     image:
-      "https://media.licdn.com/dms/image/v2/D4D0BAQH4u65euJwTaQ/company-logo_200_200/company-logo_200_200/0/1737083145519/yousourceinc_logo?e=1748476800&v=beta&t=diXCdD8uN7orDPZVXiPUynFOCfOS9zCZL0ZVh1uAodA",
+      "https://media.licdn.com/dms/image/v2/D4D0BAQH4u65euJwTaQ/company-logo_200_200/company-logo_200_200/0/1737083145519/yousourceinc_logo?e=2147483647&v=beta&t=G4wiaLVHyTfb8wFVBScGPh7EXytONevJLXXZjz8sDS0",
   },
 ];
 

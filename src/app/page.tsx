@@ -1,18 +1,22 @@
 "use client";
-import CircularGallery from "../../components/CircularGallery/CircularGallery";
-import "./style.css";
+//import CircularGallery from "../../components/CircularGallery/CircularGallery";
+//import "./style.css";
 import Squares from "../../components/Squares/Squares";
 import { motion } from "framer-motion";
-import {
-  Presentation,
-  FileBadge,
-  Contact,
-
-  Star,
-} from "lucide-react";
+import { Presentation, FileBadge, Contact, Star } from "lucide-react";
 import { Card, CardContent } from "../../components/ui/Card";
 
 const sections = [
+  {
+    title: "Data Analysis with Python Certification",
+    icon: <FileBadge className="w-5 h-5" />,
+    description:
+      "Participated in UX discussions and interactive sessions with industry leaders.",
+    link: "https://www.freecodecamp.org/certification/johnlorena/data-analysis-with-python-v7",
+    linkText: "Data Analysis with Python Certification",
+    role: "Certification",
+    date: "Nov 2024",
+  },
   {
     title: "UX+ Conference",
     icon: <Presentation className="w-5 h-5" />,
@@ -21,7 +25,7 @@ const sections = [
     link: "#",
     linkText: "UX+ Conference ",
     role: "Participant",
-    date: "August 18, 2024",
+    date: "Aug 2024",
   },
   {
     title: "PDAX Experience Ambassador Program ",
@@ -31,7 +35,7 @@ const sections = [
     link: "#",
     linkText: "View Products",
     role: "Participant",
-    date: "March 16, 2022 - May 31, 2022",
+    date: "Mar 2022 - May 2022",
   },
   {
     title: "KALARO",
@@ -41,7 +45,7 @@ const sections = [
     link: "#",
     linkText: "View Dribbble",
     role: "Beta Tester",
-    date: "September 29, 2020 - October 12, 2021",
+    date: "Sep 2020 - Oct 2021",
   },
   {
     title: "Python Certification - Certiport",
@@ -50,7 +54,7 @@ const sections = [
     link: "#",
     linkText: "View Dribbble",
     role: "Certification",
-    date: "December 15, 2023",
+    date: "Dec 2023",
   },
   {
     title: "Cloud Computing Certication  - Certiport",
@@ -59,7 +63,7 @@ const sections = [
     link: "#",
     linkText: "View Dribbble",
     role: "Certification",
-    date: "December 13, 2023",
+    date: "Dec 2023",
   },
   {
     title: "Introduction to Python Web Development",
@@ -69,25 +73,44 @@ const sections = [
     link: "#",
     linkText: "View Dribbble",
     role: "Participant",
-    date: "September 24, 2022",
+    date: "Sep 2022",
   },
 ];
 
 const experiences = [
+  {
+    role: "Lead Software Developer",
+    company: "RJMR Digital Solution",
+    duration: "Nov 2025 — Present",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTYFnTdh5_zTX-NJEBRYELFKeYOposrfVStJw&s",
+    responsibility:
+      "Architect system modules for inventory, transactions, and reporting with efficient data synchronization.Lead the end-to-end design and development of software solutions, ensuring scalability and reliability.Report project progress, technical decisions, and implementation updates directly to stakeholders.Collaborate with designers and stakeholders to refine system flow, features, and user experience.Oversee code quality, deployment processes, and system performance improvements.",
+  },
+  {
+    role: "Customer Service Representative",
+    company: "Foundever",
+    duration: "Sep 2025 — Nov 2025",
+    image:
+      "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSACS_ExZ_fMf2Fqa3X6i2YwfqWbyNgvowpew&s",
+    responsibility:
+      "Review and validate retail and lease documents to ensure accuracy, compliance, and adherence to policies and regulations.Maintain strict confidentiality and handle customer payment information in accordance with security protocols.Resolve client service issues by identifying needs, providing solutions, and ensuring timely follow-up.Collaborate in training and coaching sessions to improve individual and team performance.Perform additional duties as assigned to support team and client objectives.",
+  },
   {
     role: "Software Engineer",
     company: "You_Source",
     duration: "Feb 2024 — Feb 2025",
     image:
       "https://media.licdn.com/dms/image/v2/D4D0BAQH4u65euJwTaQ/company-logo_200_200/company-logo_200_200/0/1737083145519/yousourceinc_logo?e=2147483647&v=beta&t=G4wiaLVHyTfb8wFVBScGPh7EXytONevJLXXZjz8sDS0",
+    responsibility:
+      "Understand client needs and provide effective technical solutions aligned with their business goals.Collaborate with clients, users, and team members to define and refine system requirements.Develop clean, efficient, and well-tested code to meet project goals and deadlines.Use Azure DevOps to manage tasks, track progress, and maintain code quality.",
   },
 ];
 
 export default function Home() {
   return (
     <div className="relative min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-display">
-      {/* Background Animation */}
-      <div className="absolute inset-0 -z-10">
+      <div className="fixed inset-0 -z-10">
         <Squares
           speed={0.1}
           squareSize={40}
@@ -96,79 +119,72 @@ export default function Home() {
           hoverFillColor="#222"
         />
       </div>
+
       {/* Content */}
-
-      <motion.div
-        initial={{ opacity: 0, y: 20 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <header className="w-full flex justify-between items-center">
-          <div className="text-2xl font-bold">
-            <span>John Lorena</span>
-          </div>
-          <nav className="space-x-8">
-            <a href="#about" className="hover:text-gray-500">
-              About
-            </a>
-            <a href="#projects" className="hover:text-gray-500">
-              Projects
-            </a>
-            <a href="#contact" className="hover:text-gray-500">
-              Contact
-            </a>
-          </nav>
-        </header>
-        <div className="w-full flex justify-center mb-[-80px]">
-          <h2 className="text-4xl font-bold mb-8">TECH STACK:</h2>
-        </div>
-
-        <CircularGallery
-          bend={0}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          items={undefined}
-        />
-      </motion.div>
-
       <div className="relative min-h-screen p-8 pb-20 sm:p-20 max-w-7xl mx-auto lg:max-w-8xl mb-[-80px] mt-[-10px]">
-        <section className="py-12 px-6 text-white">
+        <section className="px-6 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <div className="">
+            <header className="w-full flex justify-between items-center">
+              <div className="text-5xl font-bold">
+                <span>John Michael Lorena</span>
+              </div>
+              {/* <nav className="space-x-8">
+                <a href="#about" className="hover:text-gray-500">
+                  About
+                </a>
+                <a href="#projects" className="hover:text-gray-500">
+                  Projects
+                </a>
+                <a href="#contact" className="hover:text-gray-500">
+                  Contact
+                </a>
+              </nav> */}
+            </header>
+            <div className="py-10">
               <div className="flex items-center gap-2 text-green-400 uppercase text-sm font-semibold">
                 <Star size={16} /> WORK HISTORY
               </div>
               <h2 className="text-4xl font-bold mb-8">EXPERIENCE</h2>
-              {/* <p className="text-gray-400 mt-4 max-w-lg">
-              I have worked with some of the most innovative industry leaders to
-              help build their top-notch products.
-            </p> */}
-
               <div className="mt-8 space-y-4">
                 {experiences.map((exp, index) => (
-                  <div
-                    key={index}
-                    className="flex items-center justify-between"
-                  >
-                    {/*  border-b border-gray-800 pb-4 */}
-                    <div className="flex items-center gap-4">
-                      <img
-                        src={exp.image}
-                        alt={exp.company}
-                        className="w-10 h-10 rounded-full"
-                      />
-                      <div>
-                        <h3 className="text-lg font-semibold">{exp.role}</h3>
-                        <p className="text-gray-500">@{exp.company}</p>
+                  <div key={index}>
+                    {/* Top row */}
+                    <div className="flex items-center justify-between">
+                      <div className="flex items-center gap-4">
+                        <img
+                          src={exp.image}
+                          alt={exp.company}
+                          className="w-10 h-10 rounded-full"
+                        />
+                        <div>
+                          <h3 className="text-lg font-semibold">{exp.role}</h3>
+                          <p className="text-gray-500">@{exp.company}</p>
+                        </div>
                       </div>
+                      <span className="text-gray-500 text-sm">
+                        {exp.duration}
+                      </span>
                     </div>
-                    <span className="text-gray-500 text-sm">
-                      {exp.duration}
-                    </span>
+
+                    {/* Description below, aligned with text */}
+                    <div className="pl-20 pt-2 pb-3">
+                      {exp.responsibility
+                        .split(".") // split sentences by period
+                        .filter((sentence) => sentence.trim() !== "") // remove empty parts
+                        .map((sentence, i) => (
+                          <p
+                            key={i}
+                            className="text-gray-300 flex items-start gap-2"
+                          >
+                            <span className="text-gray-300">-</span>
+                            <span>{sentence.trim()}.</span>
+                          </p>
+                        ))}
+                    </div>
                   </div>
                 ))}
               </div>
@@ -178,7 +194,8 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
-        <section className="py-12 px-6 text-white">
+
+        <section className="px-6 pb-20 text-white">
           <motion.div
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
@@ -190,7 +207,7 @@ export default function Home() {
             <h2 className="text-4xl font-bold mb-8">CERTIFICATES</h2>
           </motion.div>
 
-          <div className="space-y-4">
+          <div className="space-y-4 ps-20">
             {sections.map((section, index) => (
               <motion.div
                 key={index}
@@ -199,8 +216,8 @@ export default function Home() {
                 transition={{ duration: 0.5, delay: index * 0.2 }}
               >
                 <Card className="border-none">
-                  <CardContent className="p-4">
-                    <div className="flex items-center gap-3 mb-2 justify-between">
+                  <CardContent className="p-0">
+                    <div className="flex items-center gap-3 mb-1 justify-between">
                       {" "}
                       {/* Added justify-between */}
                       <div className="flex items-center gap-3">
@@ -224,6 +241,23 @@ export default function Home() {
           </div>
         </section>
       </div>
+      {/* Background Animation */}
+      {/* <motion.div
+        initial={{ opacity: 1, y: 0 }}
+        animate={{ opacity: 1, y: 0 }}
+        transition={{ duration: 0.5 }}
+      >
+        <div className="w-full flex justify-center mb-[-80px]">
+          <h2 className="text-4xl font-bold mb-8">TECH STACK:</h2>
+        </div>
+
+        <CircularGallery
+          bend={2}
+          textColor="#ffffff"
+          borderRadius={0.05}
+          items={undefined}
+        />
+      </motion.div> */}
     </div>
   );
 }

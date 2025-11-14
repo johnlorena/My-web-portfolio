@@ -13,7 +13,7 @@ const sections = [
     description:
       "Participated in UX discussions and interactive sessions with industry leaders.",
     link: "https://www.freecodecamp.org/certification/johnlorena/data-analysis-with-python-v7",
-    linkText: "Data Analysis with Python Certification",
+    linkText: "Learned core data analysis skills including reading CSV/SQL data and using Numpy, Pandas, Matplotlib, and Seaborn for processing and visualization",
     role: "Certification",
     date: "Nov 2024",
   },

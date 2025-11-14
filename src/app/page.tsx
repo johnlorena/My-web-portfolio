@@ -11,9 +11,9 @@ const sections = [
     title: "Data Analysis with Python Certification",
     icon: <FileBadge className="w-5 h-5" />,
     description:
-      "Participated in UX discussions and interactive sessions with industry leaders.",
+      "Learned core data analysis skills including reading CSV/SQL data and using Numpy, Pandas, Matplotlib, and Seaborn for processing and visualization",
     link: "https://www.freecodecamp.org/certification/johnlorena/data-analysis-with-python-v7",
-    linkText: "Learned core data analysis skills including reading CSV/SQL data and using Numpy, Pandas, Matplotlib, and Seaborn for processing and visualization",
+    linkText: "Data Analysis with Python Certification",
     role: "Certification",
     date: "Nov 2024",
   },

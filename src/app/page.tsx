@@ -1,5 +1,5 @@
 "use client";
-import CircularGallery from "../../components/CircularGallery/CircularGallery";
+//import CircularGallery from "../../components/CircularGallery/CircularGallery";
 //import "./style.css";
 import Squares from "../../components/Squares/Squares";
 import { motion } from "framer-motion";

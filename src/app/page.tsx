@@ -1,9 +1,16 @@
 "use client";
-//import CircularGallery from "../../components/CircularGallery/CircularGallery";
+import CircularGallery from "../../components/CircularGallery/CircularGallery";
 //import "./style.css";
 import Squares from "../../components/Squares/Squares";
 import { motion } from "framer-motion";
-import { Presentation, FileBadge, Contact, Star } from "lucide-react";
+import {
+  Presentation,
+  FileBadge,
+  Contact,
+  Star,
+  Github,
+  Linkedin,
+} from "lucide-react";
 import { Card, CardContent } from "../../components/ui/Card";
 
 const sections = [
@@ -109,7 +116,7 @@ const experiences = [
 
 export default function Home() {
   return (
-    <div className="relative min-h-screen p-8 pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-display">
+    <div className="relative min-h-screen  pb-20 sm:p-20 font-[family-name:var(--font-geist-sans)] overflow-display">
       <div className="fixed inset-0 -z-10">
         <Squares
           speed={0.1}
@@ -119,7 +126,7 @@ export default function Home() {
           hoverFillColor="#222"
         />
       </div>
-
+      
       {/* Content */}
       <div className="relative min-h-screen p-8 pb-20 sm:p-20 max-w-7xl mx-auto lg:max-w-8xl mb-[-80px] mt-[-10px]">
         <section className="px-6 text-white">
@@ -128,22 +135,51 @@ export default function Home() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.5 }}
           >
-            <header className="w-full flex justify-between items-center">
-              <div className="text-5xl font-bold">
-                <span>John Michael Lorena</span>
+            <section className="mb-5">
+              <div className="relative overflow-hidden rounded-[32px] bg-gradient-to-r from-[#dfe7ff] via-[#eef1ff] to-[#f7f9ff] px-8 py-12 text-gray-900 shadow-[0_25px_70px_rgba(15,23,42,0.08)] sm:px-12 lg:flex lg:items-center lg:gap-10">
+                <div className="flex-1 text-center lg:text-left">
+                  <p className="text-xs font-semibold uppercase tracking-[0.35em] text-gray-500">
+                    Code. Create. Conquer.
+                  </p>
+                  <h1 className="mt-4 mb-4 text-4xl font-bold leading-tight text-gray-900 sm:text-5xl">
+                    Let&apos;s build something great together
+                  </h1>
+                  <span className="mt-4 text-2xl leading-tight text-gray-900 sm:text-2md">
+                    John Michael Lorena
+                  </span>
+                  <div className="mt-8 flex flex-col items-center justify-center gap-4 text-center text-sm font-semibold uppercase tracking-[0.3em] text-gray-600 sm:flex-row sm:flex-wrap sm:items-center sm:justify-center sm:text-center lg:justify-start lg:text-left">
+                    <a
+                      href="https://github.com/johnlorena"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-gray-900 shadow-sm transition hover:bg-gray-50 sm:w-auto"
+                    >
+                      <Github size={18} />
+                      GitHub
+                    </a>
+                    <a
+                      href="https://www.linkedin.com/in/johnlorena"
+                      target="_blank"
+                      rel="noreferrer"
+                      className="flex w-full items-center justify-center gap-2 rounded-full border border-gray-300 bg-white px-5 py-2 text-gray-900 shadow-sm transition hover:bg-gray-50 sm:w-auto"
+                    >
+                      <Linkedin size={18} />
+                      LinkedIn
+                    </a>
+                  </div>
+                </div>
+                <div className="relative mt-12 flex-1 lg:mt-0">
+                  <div className="relative mx-auto flex max-w-sm justify-center rounded-[40px] p-6 ">
+                    <img
+                      src="https://avatars.githubusercontent.com/u/43415494?s=400&u=23e925f2f0616897702222cc7bfd065b011085a8&v=4"
+                      alt="Instructor"
+                      className="h-64 w-64 rounded-full object-cover shadow-2xl ring-8 ring-white/70 sm:h-72 sm:w-72"
+                    />
+                  </div>
+                </div>
               </div>
-              {/* <nav className="space-x-8">
-                <a href="#about" className="hover:text-gray-500">
-                  About
-                </a>
-                <a href="#projects" className="hover:text-gray-500">
-                  Projects
-                </a>
-                <a href="#contact" className="hover:text-gray-500">
-                  Contact
-                </a>
-              </nav> */}
-            </header>
+            </section>
+            
             <div className="py-10">
               <div className="flex items-center gap-2 text-green-400 uppercase text-sm font-semibold">
                 <Star size={16} /> WORK HISTORY
@@ -194,6 +230,28 @@ export default function Home() {
             </div>
           </motion.div>
         </section>
+        {/* Background Animation */}
+        {/* <motion.div
+          initial={{ opacity: 1, y: 0 }}
+          animate={{ opacity: 1, y: 0 }}
+          transition={{ duration: 0.5 }}
+          className="relative px-6 sm:px-12"
+          // style={{
+          //   marginLeft: "calc(-60vw + 60%)",
+          //   marginRight: "calc(-60vw + 60%)",
+          // }}
+        >
+          <div className="w-full flex justify-center mb-[-80px]">
+            <h2 className="text-4xl font-bold mb-8">TECH STACK:</h2>
+          </div>
+          <CircularGallery
+            bend={2}
+            textColor="#ffffff"
+            borderRadius={0.05}
+            items={undefined}
+          />
+        </motion.div> */}
+        
 
         <section className="px-6 pb-20 text-white">
           <motion.div
@@ -241,23 +299,6 @@ export default function Home() {
           </div>
         </section>
       </div>
-      {/* Background Animation */}
-      {/* <motion.div
-        initial={{ opacity: 1, y: 0 }}
-        animate={{ opacity: 1, y: 0 }}
-        transition={{ duration: 0.5 }}
-      >
-        <div className="w-full flex justify-center mb-[-80px]">
-          <h2 className="text-4xl font-bold mb-8">TECH STACK:</h2>
-        </div>
-
-        <CircularGallery
-          bend={2}
-          textColor="#ffffff"
-          borderRadius={0.05}
-          items={undefined}
-        />
-      </motion.div> */}
     </div>
   );
 }

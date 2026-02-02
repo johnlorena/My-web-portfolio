@@ -90,7 +90,7 @@ const experiences = [
     company: "TerniLabs",
     duration: "Nov 2025 — Present",
     image:
-      "https://github.com/Terni-Labs/ternilabs-assets/blob/main/Images/TerniLabs%20Logo%20V1-Icon-Round.png?raw=true",
+      "https://github.com/TerniLabs/assets/blob/main/images/ternilabs-logo-v1-icon-round.png?raw=true",
     responsibility:
       "Architect system modules for inventory, transactions, and reporting with efficient data synchronization.Lead the end-to-end design and development of software solutions, ensuring scalability and reliability.Report project progress, technical decisions, and implementation updates directly to stakeholders.Collaborate with designers and stakeholders to refine system flow, features, and user experience.Oversee code quality, deployment processes, and system performance improvements.",
   },
